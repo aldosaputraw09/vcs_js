@@ -1,0 +1,139 @@
+/* 4 product */
+.product {
+	height: 720px;
+	width: 100%;
+	position: relative;
+}
+
+.product__image {
+	background-size: cover;
+	background-position: center;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+}
+
+/* Ketika background image card aktif */
+.product__image--active {
+	opacity: 1;
+	transition: 1s ease;
+}
+
+.product__cards {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 2;
+}
+
+.product__cards .card {
+	flex: 1;
+	padding: 32px;
+	background-color: rgba(0, 0, 0, 0.24);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+	transition: .3s ease;
+}
+
+.product__cards .card:hover {
+	background-color: rgba(0, 0, 0, 0.123);
+	transition: .3s ease;
+}
+
+.product__cards .card .card__header {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	height: 72px;
+	transition: .3s ease;
+}
+
+.product__cards .card .card__header .card__title {
+	font-size: 1.6rem;
+	font-weight: bold;
+  /* color: #f5f5f5; */
+}
+
+.product__cards .card .card__link {
+	color:white;
+	text-decoration: none;
+	transition: .3s ease;
+}
+
+.product__cards .card .card__link:hover {
+	color: blue;
+	transition: .3s ease;
+}
+
+/* Ketika card aktif */
+.product__cards .card--active {
+	flex: 2;
+	background-color: transparent;
+	cursor: unset;
+	transition: .3s ease;
+}
+
+.product__cards .card--active:hover {
+	background-color: transparent;
+}
+
+.product__cards .card--active .card__header {
+	height: 77px;
+	transition: .3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+	.product__cards{
+		display: none;
+	}
+
+	.product__cards .card--active .card__header {
+		height: auto;
+	}
+
+	.product__cards .card--active {
+		flex: 1;
+	}
+
+	.product__cards .card .card__link span {
+		display: none;
+	}
+
+	.product__cards .card {
+		padding: 20px;
+	}
+}
+
+@media only screen and (max-width: 540px) {
+	.product__cards {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr !important;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.product__cards .card {
+		padding: 18px;
+	}
+}
+
+@media only screen and (max-width: 280px) {
+	.product__cards .card {
+		padding: 5px;
+	}
+}
